@@ -6,12 +6,12 @@ const sequelize = require('./database/db');
 const app = express();
 const port = process.env.PORT || 3000;
 
-const connection = new Sequelize("alkemy_blog", "root", "admin", {
-    host: "localhost",
-    dialect: "mysql",
-});
+// const connection = new Sequelize("alkemy_blog", "root", "admin", {
+//     host: "localhost",
+//     dialect: "mysql",
+// });
 
-connection.authenticate().then( async () => {
+sequelize.sync({force: true}).then( () => {
     console.log("Connection OK")
 }).catch( err => console.log("error ", err));
 
@@ -20,7 +20,7 @@ connection.authenticate().then( async () => {
 
 app.listen(port, () => {
     console.log("Running on port " + port);
-    sequelize.sync({forece: false}).then( () => {
+    sequelize.sync({force: false}).then( () => {
         console.log("Conexión a la base de datos exitosa");
     }).catch(err => console.log("error", err));
 } )
