@@ -1,13 +1,16 @@
 const { Sequelize, DataTypes, Model } = require('sequelize');
 const { database } = require('../config');
-const sequelize = new Sequelize();
+const sequelize = require('../database/db');
 
 
 class Post extends Model {}
 
 Post.init(
     {
-     id: DataTypes.INTEGER,
+    id: {
+            type: DataTypes.NUMBER,
+            primaryKey: true
+        },
      title: DataTypes.STRING,
      content: DataTypes.STRING,
      imageUrl: DataTypes.STRING,

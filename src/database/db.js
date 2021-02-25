@@ -7,6 +7,7 @@ const sequelize = new Sequelize(
     database.database,
     { 
       host: database.host,
+      port: '3306',
       dialect: "mysql"
     }
 )
