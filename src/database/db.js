@@ -2,9 +2,9 @@ const Sequelize = require('sequelize');
 const { database } = require('../config');
 
 const sequelize = new Sequelize(
+    database.database,
     database.user,
     database.pass,
-    database.database,
     { 
       host: database.host,
       port: '3306',

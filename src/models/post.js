@@ -8,14 +8,14 @@ class Post extends Model {}
 Post.init(
     {
     id: {
-            type: DataTypes.NUMBER,
-            primaryKey: true
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
         },
      title: DataTypes.STRING,
      content: DataTypes.STRING,
      imageUrl: DataTypes.STRING,
-     category: DataTypes.STRING,
-     created_at: DataTypes.DATE   
+     category: DataTypes.STRING,  
     },
     {
      sequelize,
